@@ -1,0 +1,30 @@
+<div class="ui cards">
+<% @products.each do |product|%>
+  <div class="ui card">
+    <div class="content">
+      <!-- remove floated for only image /home/beast/Downloads/phn.jpeg -->
+      <!--<img class="center floated mini ui image" src = product.pic>-->
+      <%= image_tag(product.pic , :class => 'center large ui image') %>
+      <div class="header">
+        <%= product.name%>
+      </div>
+      <div class="meta">
+        <%= product.price%>
+      </div>
+      <div class="description">
+        <%= product.description%>
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <!--
+        <%= link_to '<button class = "ui orange button">Add to cart</button>'.html_safe, controller:"carts", action:"create", method: :post,pid:"1",uid:"2"%>
+        <%= link_to '<button class = "ui green button">Add to Favourites</button>'.html_safe, signup_path%>
+      -->
+      <%= link_to '<button class = "ui orange button">Add to cart</button>'.html_safe, product_path(product)%>
+      <%= link_to '<button class = "ui green button">Add to Favourites</button>'.html_safe, signup_path%>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>

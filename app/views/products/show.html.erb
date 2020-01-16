@@ -1,0 +1,52 @@
+<div class="ui card">
+  <div class="content">
+    <!-- remove floated for only image /home/beast/Downloads/phn.jpeg -->
+    <!--<img class="center floated mini ui image" src = product.pic>-->
+    <%= link_to '<button class = "ui inverted button">Go back</button>'.html_safe,controller: "carts",action: "create", method: :post, pid:"2" %>
+    <%= link_to '<button class = "ui inverted button">Go</button>'.html_safe,foo_path(id: @product.id)%>
+
+    <%= image_tag(@product.pic , :class => 'center large ui image') %>
+    <div class="header">
+      <%= @product.name%>
+    </div>
+    <div class="meta">
+      <%= @product.price%>
+    </div>
+    <div class="description">
+      <%= @product.description%>
+    </div>
+  </div>
+  <%=form_for(@cart, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <% f.label :user_id%>
+   </div>
+   <div class="col-sm-6">
+    <%= f.text_field :user_id %>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <% f.label :product_id %>
+   </div>
+   <div class="col-sm-6">
+    <% f.text_area :product_id,:value=>@product.id%>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Place",class: "ui button orange" %>
+   </div>
+  </div>
+<% end %>
+  <div class="extra content">
+    <div class="ui button">
+      <!--
+      <div class="ui orange button">Add to cart</div>
+      <div class="ui green button">Add to Wishlist</div>
+    -->
+      <%= link_to '<button class = "ui inverted button">Go back</button>'.html_safe, root_path%>
+      <!--<%= link_to '<button class = "ui green button">Add to Favourites</button>'.html_safe, signup_path%>-->
+    </div>
+  </div>
+</div>

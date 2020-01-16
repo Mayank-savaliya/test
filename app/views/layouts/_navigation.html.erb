@@ -1,0 +1,30 @@
+<%= link_to "Ecom site", root_path ,class:"item"%>
+<!--
+<a class="item">
+  Messages
+</a>-->
+<%=link_to "Ascending", controller: "welcome", action: "home", srt: "2"%>
+<%=link_to "Descending", controller: "welcome", action: "home", srt: "1"%>
+<% if logged_in?%>
+<%=link_to "Your orders",cart_path(session[:user_id])%>
+<%end%>
+<!--
+<%= link_to '<button class = "ui orange button">Add to cart</button>'.html_safe, signup_path%>
+-->
+<div class="right menu">
+  <div class="ui dropdown item">
+    Account <i class="dropdown icon"></i>
+    <div class="menu">
+      <% if logged_in? %>
+        <%= link_to "Log out", logout_path ,method: :delete,class:"item"%>
+      <%else%>
+        <%= link_to "Log in", login_path ,class:"item"%>
+      <%end%>
+    </div>
+  </div>
+  <% if logged_in? %>
+    <div class="item">
+        <div class="ui primary button">Log out</div>
+    </div>
+  <%end%>
+</div>

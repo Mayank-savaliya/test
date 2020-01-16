@@ -1,0 +1,32 @@
+<h1>Let me innnnnnnn!!!!!! </h1>
+<%= form_for(:user, html: {class: "ui form", role: "form"}, url: users_path) do |f| %>
+        <div class="field">
+          <%= f.label :username, "UserName"%>
+          <div class="ui left small icon input">
+            <%= f.text_field :username, placeholder: "Got a name?, well then what are you thinking" %>
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :email, "Email" %>
+          <div class="ui left small icon input">
+            <%= f.email_field :email, placeholder: "Your mail address" %>
+            <i class="file alternate outline icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :password, "Password" %>
+          <div class="ui left small icon input">
+            <%= f.password_field :password, placeholder: "You think you're safe?" %>
+            <i class="file alternate outline icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :purpose, "Buyer Or Seller" %>
+          <div class="ui left small icon input">
+            <%= f.text_field :purpose, placeholder: "Enter 1 for buyer 2 for seller" %>
+            <i class="file alternate outline icon"></i>
+          </div>
+        </div>
+        <%= f.button "Sign Up", class: "ui orange submit button" %>
+<%end%>
